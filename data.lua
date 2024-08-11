@@ -232,7 +232,7 @@ core.mountList[2] = {
 	}
 }
 core.mountList[3] = {
-	name = "LEGION",
+	name = "军团再临",
 	categories = {
 		Achievement = {
 			name = "成就",
@@ -547,7 +547,7 @@ core.mountList[9] = {
 	}						
 }
 core.mountList[10] = {
-	name = "Alliance",
+	name = "联盟",
 	categories = {	
 		Human = {
 			name = "人类",
@@ -597,7 +597,7 @@ core.mountList[10] = {
 	}				
 }
 core.mountList[11] = {
-	name = "Horde",
+	name = "部落",
 	categories = {	
 		Orc = {
 			name = "兽人",
@@ -642,7 +642,7 @@ core.mountList[11] = {
 	}
 }
 core.mountList[12] = {
-	name = "Professions",
+	name = "专业",
 	categories = {	
 		Alchemy = {
 			name = "炼金",
@@ -732,7 +732,7 @@ core.mountList[13] = {
 	}
 }
 core.mountList[14] = {
-	name = "WorldEvents",
+	name = "世界事件",
 	categories = {	
 		Achievement = {
 			name = "成就",
@@ -782,7 +782,7 @@ core.mountList[14] = {
 	}
 }
 core.mountList[15] = {
-	name = "Promotion",
+	name = "促销",
 	categories = {	
 		BlizzardStore = {
 			name = "商城",
@@ -850,7 +850,7 @@ core.mountList[15] = {
 	}	
 }
 core.mountList[16] = {
-	name = "Other",
+	name = "其他",
 	categories = {	
 		GuildVendor = {
 			name = "公会商人",
@@ -899,7 +899,7 @@ core.mountList[16] = {
 	}
 }
 core.mountList[17] = {
-	name = "Unobtainable",
+	name = "绝版",
 	categories = {	
 		MythicPlus = {
 			name = "大秘境评分",
@@ -1020,47 +1020,47 @@ core.mountList[18] = {
 }
 
 core.sectionNames[10] = {
-	name = "Vanilla",
+	name = "经典旧世",
 	mounts = core.mountList[9],
 	icon = "Interface\\AddOns\\MCL\\icons\\classic.blp",
 }
 core.sectionNames[9] = {
-	name = "The Burning Crusade",
+	name = "燃烧的远征",
 	mounts = core.mountList[8],
 	icon = "Interface\\AddOns\\MCL\\icons\\bc.blp",
 }
 core.sectionNames[8] = {
-	name = "Wrath of the Lich King",
+	name = "巫妖王之怒",
 	mounts = core.mountList[7],
 	icon = "Interface\\AddOns\\MCL\\icons\\wrath.blp",
 }
 core.sectionNames[7] = {
-	name = "Cataclysm",
+	name = "大灾变",
 	mounts = core.mountList[6],
 	icon = "Interface\\AddOns\\MCL\\icons\\cata.blp",
 }
 core.sectionNames[6] = {
-	name = "Mists of Pandaria",
+	name = "熊猫人之谜",
 	mounts = core.mountList[5],
 	icon = "Interface\\AddOns\\MCL\\icons\\mists.blp",
 }
 core.sectionNames[5] = {
-	name = "Warlords of Draenor",
+	name = "德拉诺之王",
 	mounts = core.mountList[4],
 	icon = "Interface\\AddOns\\MCL\\icons\\wod.blp",
 }
 core.sectionNames[4] = {
-	name = "Legion",
+	name = "军团再临",
 	mounts = core.mountList[3],
 	icon = "Interface\\AddOns\\MCL\\icons\\legion.blp",
 }
 core.sectionNames[3] = {
-	name = "Battle for Azeroth",
+	name = "争霸艾泽拉斯",
 	mounts = core.mountList[2],
 	icon = "Interface\\AddOns\\MCL\\icons\\bfa.blp",
 }
 core.sectionNames[2] = {
-	name = "Shadowlands",
+	name = "暗影界",
 	mounts = core.mountList[1],
 	icon = "Interface\\AddOns\\MCL\\icons\\sl.blp",
 }
@@ -1070,17 +1070,17 @@ core.sectionNames[1] = {
 	icon = "Interface\\AddOns\\MCL\\icons\\df.blp",
 }
 core.sectionNames[11] = {
-	name = "Horde",
+	name = "部落",
 	mounts = core.mountList[11],
 	icon = "Interface\\AddOns\\MCL\\icons\\horde.blp",
 }
 core.sectionNames[12] = {
-	name = "Alliance",
+	name = "联盟",
 	mounts = core.mountList[10],
 	icon = "Interface\\AddOns\\MCL\\icons\\alliance.blp",
 }
 core.sectionNames[13] = {
-	name = "Professions",
+	name = "专业",
 	mounts = core.mountList[12],
 	icon = "Interface\\AddOns\\MCL\\icons\\professions.blp",
 }
@@ -1090,32 +1090,32 @@ core.sectionNames[14] = {
 	icon = "Interface\\AddOns\\MCL\\icons\\pvp.blp",
 }
 core.sectionNames[15] = {
-	name = "World Events",
+	name = "世界事件",
 	mounts = core.mountList[14],
 	icon = "Interface\\AddOns\\MCL\\icons\\holiday.blp",
 }
 core.sectionNames[16] = {
-	name = "Promotion",
+	name = "促销",
 	mounts = core.mountList[15],
 	icon = "Interface\\AddOns\\MCL\\icons\\promotion.blp",
 }
 core.sectionNames[17] = {
-	name = "Other",
+	name = "其他",
 	mounts = core.mountList[16],
 	icon = "Interface\\AddOns\\MCL\\icons\\other.blp",
 }
 core.sectionNames[18] = {
-	name = "Unobtainable",
+	name = "绝版",
 	mounts = core.mountList[17],
 	icon = "Interface\\AddOns\\MCL\\icons\\unobtainable.blp",
 }
 core.sectionNames[19] = {
-	name = "Pinned",
+	name = "偏好",
 	mounts = {MCL_PINNED},
 	icon = "Interface\\AddOns\\MCL\\icons\\pin.blp",	
 }
 core.sectionNames[20] = {
-	name = "Overview",
+	name = "总览",
 	mounts = {},
 	icon = "Interface\\AddOns\\MCL\\icons\\mcl.blp",	
 }

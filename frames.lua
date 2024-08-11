@@ -153,7 +153,7 @@ function MCL_frames:SetTabs()
 		end
 		tab:SetScript("OnClick", Tab_OnClick);
         tab:SetWidth(nav_width)
-		if v.name == "Pinned" then
+		if v.name == "偏好" then
 			tab.content = CreateFrame("Frame", "PinnedTab", tabFrame.ScrollFrame);
 		else
 			tab.content = CreateFrame("Frame", nil, tabFrame.ScrollFrame);
@@ -163,9 +163,9 @@ function MCL_frames:SetTabs()
 
 		table.insert(contents, tab.content);
 
-		if tab.title:GetText() == "Overview" then
+		if tab.title:GetText() == "总览" then
 			tab:SetPoint("TOPLEFT", tabFrame, "TOPLEFT", 0, 20);
-		elseif (i == 1) or tab.title:GetText() == "Overview" then
+		elseif (i == 1) or tab.title:GetText() == "总览" then
 			tab:SetPoint("TOPLEFT", tabFrame, "TOPLEFT", 0, -10);
 		else
 			tab:SetPoint("BOTTOM", _G[frameName.."Tab"..(i-1)], "BOTTOM", 0, -30);
@@ -241,7 +241,7 @@ function MCL_frames:createContentFrame(relativeFrame, title)
 	frame.title:SetText(title)
 
 
-	if title ~= "Pinned" then
+	if title ~= "偏好" then
 		frame.pBar = core.Frames:progressBar(frame)
 		frame.pBar:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 0, -15)
 		frame.pBar:SetWidth(880)
@@ -260,7 +260,7 @@ function MCL_frames:createOverviewCategory(set, relativeFrame)
     local oddOverFlow, evenOverFlow = 0, 0
 
 	for k,v in pairs(set) do
-		if (v.name ~= "Overview") and (v.name ~= "Pinned") then
+		if (v.name ~= "总览") and (v.name ~= "偏好") then
 			local frame = CreateFrame("Frame", nil, relativeFrame, "BackdropTemplate")
 			frame:SetWidth(60);
 			frame:SetHeight(60);
@@ -293,7 +293,7 @@ function MCL_frames:createOverviewCategory(set, relativeFrame)
 			pBar:HookScript("OnLeave", function()
 				pBar:SetStatusBarColor(r, g, b, a)
 			end)
-			if v.name == "Unobtainable" then
+			if v.name == "绝版" then
 				pBar.unobtainable = MCL_SETTINGS.unobtainable
 				if MCL_SETTINGS.unobtainable == true then
 					pBar:GetParent():Hide()

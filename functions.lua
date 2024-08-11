@@ -17,9 +17,9 @@ function MCL_functions:getFaction()
     -- * Get's player faction
     -- * --------------------------------
 	if UnitFactionGroup("player") == "Alliance" then
-		return "Horde" -- Inverse
+		return "部落" -- Inverse
 	else
-		return "Alliance" -- Inverse
+		return "联盟" -- Inverse
 	end
 end
 
@@ -224,12 +224,13 @@ function MCL_functions:initSections()
     -- * --------------------------------
     -- * Create variables and assign strings to each section.
     -- * --------------------------------
-
+    -- 获取玩家的阵营
     local faction = MCL_functions:getFaction()
     core.sections = {}
-
+    -- 遍历定义的部分名称
     for i, v in ipairs(core.sectionNames) do
         local success, err = pcall(function()
+            -- 安全调用以添加非当前阵营的部分
             if v.name ~= faction then
                 local t = {
                     name = v.name,
@@ -237,7 +238,7 @@ function MCL_functions:initSections()
                 }
                 table.insert(core.sections, t)
             else
-                -- Skip opposite faction
+                -- 跳过当前阵营的部分
             end
         end)
 
@@ -245,11 +246,11 @@ function MCL_functions:initSections()
             print("Error in iteration with section name "..v.name..": "..err)
         end
     end
-
+     -- 创建导航框架
     core.MCL_MF_Nav = core.Frames:createNavFrame(core.MCL_MF, 'Sections')
-
+-- 设置并获取标签页
     local tabFrames, numTabs = core.Frames:SetTabs() 
-
+    
     local function OverviewStats(relativeFrame)
         core.Frames:createOverviewCategory(core.sections, relativeFrame)
         -- core.Frames:createCategoryFrame(core.sections, relativeFrame)
@@ -262,10 +263,10 @@ function MCL_functions:initSections()
             table.insert(core.sectionFrames, section_frame)
 
             for ii,v in ipairs(core.sectionNames) do
-                if v.name == "Overview" then
+                if v.name == "总览" then
                     core.overview = section_frame        
                 elseif v.name == core.sections[i].name then
-                    if v.name == "Pinned" then
+                    if v.name == "偏好" then
                         local category = CreateFrame("Frame", "PinnedFrame", section_frame, "BackdropTemplate");
                         category:SetWidth(60);
                         category:SetHeight(60);
@@ -274,7 +275,7 @@ function MCL_functions:initSections()
                         table.insert(core.mountFrames, mountFrame)
                         category.info = category:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
                         category.info:SetPoint("TOP", 450, -0)
-                        category.info:SetText("Ctrl + Right Click to pin uncollected mounts")
+                        category.info:SetText("Ctrl + 右键单击​​以固定未收集的坐骑")
                     end                   
                     -- ! Create Frame for each category
                     if v.mounts then
@@ -1019,7 +1020,7 @@ function MCL_functions:UpdateCollection()
                 end               
             end            
         end
-        if section_name == "Unobtainable" then
+        if section_name == "绝版" then
             core.total = core.total + section_collected - section_total
         end
     end
@@ -1037,7 +1038,7 @@ function MCL_functions:updateFromSettings(setting, val)
     end
     if setting == "opacity" then
         core.MCL_MF.Bg:SetVertexColor(0,0,0,MCL_SETTINGS.opacity)
-    elseif setting:lower() == "unobtainable" then
+    elseif setting:lower() == "绝版" then
         for k,v in pairs(core.overviewFrames) do
             if v.name:lower() == setting:lower() then
                 if val == true then
@@ -1100,7 +1101,7 @@ function MCL_functions:updateFromDefaults(setting)
     core.Function:updateFromSettings("opacity")
     core.Function:updateFromSettings("texture")
     core.Function:updateFromSettings("progressColor")
-    core.Function:updateFromSettings("unobtainable", false)
+    core.Function:updateFromSettings("绝版", false)
 end
 
 function MCL_functions:AddonSettings()
@@ -1277,7 +1278,7 @@ function MCL_functions:AddonSettings()
                 desc = "Hide Unobtainable mounts from the overview.",
                 type = "toggle",
                 width = "full",
-                set = function(info, val) MCL_SETTINGS.unobtainable = val; core.Function:updateFromSettings("unobtainable", val); end,
+                set = function(info, val) MCL_SETTINGS.unobtainable = val; core.Function:updateFromSettings("绝版", val); end,
                 get = function(info) return MCL_SETTINGS.unobtainable; end,
             },
             headerfour = {             

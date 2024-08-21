@@ -108,7 +108,7 @@ end
 function MCL_Load:Toggle()
     -- Check preload status and if false, prevent execution.
     if core.dataLoaded == false then
-        print("Data not loaded yet.")
+        print("Data not loaded yet.",load_check)
         return
     end 
     if core.MCL_MF == nil then
@@ -130,15 +130,16 @@ local login = true
 
 
 local function onevent(self, event, arg1, ...)
+    
     if(login and ((event == "ADDON_LOADED" and name == arg1) or (event == "PLAYER_LOGIN"))) then
+        print('角色登录/mcl加载')
         login = nil
         f:UnregisterEvent("ADDON_LOADED")
         f:UnregisterEvent("PLAYER_LOGIN")
-	    if not IsAddOnLoaded("Blizzard_Collections") then
-	        LoadAddOn("Blizzard_Collections")
-	    end
+	    -- if not IsAddOnLoaded("Blizzard_Collections") then
+	    --     LoadAddOn("Blizzard_Collections")
+	    -- end
         core.Function:AddonSettings()
-        
         -- Initiate the addon when the required addon is loaded
         MCL_Load:Init()
     end
@@ -149,3 +150,4 @@ end
 f:RegisterEvent("ADDON_LOADED")
 f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", onevent)
+
